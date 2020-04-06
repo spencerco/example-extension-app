@@ -47,7 +47,7 @@ router.post('/triggers', async function (req, res, next) {
     })
     applicationState.appendActionLog(req.url, response)
   } catch (err) {
-    applicationState.appendActionLog(req.url, err.response || err)
+    applicationState.appendActionLog(req.url, err)
   }
   res.redirect("/admin")
 });

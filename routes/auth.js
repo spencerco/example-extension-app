@@ -20,7 +20,7 @@ router.get('/', async function (req, res) {
 
     res.redirect("/form")
   } catch (err) {
-    applicationState.appendActionLog(req.url, err.response || err)
+    applicationState.appendActionLog(req.url, err)
     res.status(500)
     res.send(err)
   }

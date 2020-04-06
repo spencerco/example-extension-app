@@ -48,7 +48,7 @@ router.get('/', async function (req, res, next) {
       res.redirect(`${IDENTITY_BASE_URL}/authorize?${data}`)
     }
   } catch (err) {
-    applicationState.appendActionLog(req.url, err.response || err)
+    applicationState.appendActionLog(req.url, err)
     res.status(500)
     res.send(err)
   }
@@ -80,7 +80,7 @@ router.post('/submit', async function (req, res, next) {
     applicationState.appendActionLog(req.url, response)
     res.render("formSubmitted", { title: 'Form Submitted', redirectUri })
   } catch (err) {
-    applicationState.appendActionLog(req.url, err.response || err)
+    applicationState.appendActionLog(req.url, err)
     res.status(500)
     res.send(err)
   }
