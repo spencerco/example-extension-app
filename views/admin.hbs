@@ -3,9 +3,12 @@
     <h2>Application state</h2>
     <form method="POST" action="/admin">
       <div class="form-group">
-        <label for="accessToken">Service Access Token</label>
-        <input name="accessToken" disabled value="{{data.accessToken}}" type="text" class="form-control"
-          id="accessToken">
+        <label for="accessToken">API URL</label>
+        <input name="accessToken" disabled value="{{apiUrl}}" type="text" class="form-control" id="accessToken">
+      </div>
+      <div class="form-group">
+        <label for="accessToken">Identity URL</label>
+        <input name="accessToken" disabled value="{{identityUrl}}" type="text" class="form-control" id="accessToken">
       </div>
       <br>
       <div class="form-group">

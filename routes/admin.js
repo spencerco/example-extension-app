@@ -3,7 +3,7 @@ const router = express.Router();
 const { getHostUrl } = require("../utils")
 const { applicationState } = require("../services/state")
 const { invokeTrigger } = require("../services/spencer")
-const { REQUEST_TRIGGER_SLUG } = require("../constants")
+const { REQUEST_TRIGGER_SLUG, API_BASE_URL, IDENTITY_BASE_URL } = require("../constants")
 
 router.get('/', function (req, res, next) {
   res.render("admin", {
@@ -11,7 +11,9 @@ router.get('/', function (req, res, next) {
     data: applicationState.getData(),
     primaryAction: getHostUrl(req, "/form"),
     hasRequiredData: applicationState.hasRequiredData(),
-    actionLog: applicationState.getActionLog()
+    actionLog: applicationState.getActionLog(),
+    apiUrl: API_BASE_URL,
+    identityUrl: IDENTITY_BASE_URL
   })
 });
 
