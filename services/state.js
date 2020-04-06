@@ -131,8 +131,6 @@ function getStateFilePath() {
 function getActionData(action) {
   if (action.response && action.response.data) {
     return action.response.data
-  } else if (action.response) {
-    return action.response
   } else if (action instanceof Error) {
     return action.message
   } else {
