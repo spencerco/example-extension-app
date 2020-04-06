@@ -3,6 +3,6 @@
     "node_modules{,/**}",
     ".vscode{,/**}"
   ],
-  "appService.defaultWebAppToDeploy": "/subscriptions/ce451f2e-793b-4c7d-bf1f-497df1ec0e74/resourceGroups/spencerextfw/providers/Microsoft.Web/sites/spencer-demo-extension-app",
-  "appService.deploySubpath": ""
+  "appService.deploySubpath": "",
+  "appService.defaultWebAppToDeploy": "None"
 }

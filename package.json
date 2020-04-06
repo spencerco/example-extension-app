@@ -1,9 +1,9 @@
 {
-  "name": "spencer-demo-extension-app",
+  "name": "spencer-extension-app",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development DEBUG=spencer-demo-extension-app:* node ./bin/www.js"
+    "start": "NODE_ENV=development DEBUG=spencer-extension-app:* API_BASE_URL=\"https://delhaize-stag-api.spencer.co/\" IDENTITY_BASE_URL=\"https://spencermultisso-staging-identity.spencer.co/auth/oauth2/realms/root/realms/aholddelhaize\" node ./bin/www.js"
   },
   "dependencies": {
     "axios": "^0.19.2",

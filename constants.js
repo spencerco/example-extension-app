@@ -1,9 +1,10 @@
-const API_BASE_URL = "https://delhaize-stag-api.spencer.co/"
+const process = require("process")
+
+const API_BASE_URL = process.env.API_BASE_URL
+const IDENTITY_BASE_URL = process.env.IDENTITY_BASE_URL
 
 const REQUEST_TRIGGER_SLUG = "request-trigger"
 const RESULT_TRIGGER_SLUG = "result-trigger"
-
-const IDENTITY_BASE_URL = "https://spencermultisso-staging-identity.spencer.co/auth/oauth2/realms/root/realms/aholddelhaize"
 
 const SUPPORTED_LANGUAGES = ["en-US", "nl-BE", "fr-BE"]
 

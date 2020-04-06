@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('spencer-demo-extension-app:server');
+var debug = require('debug')('spencer-extension-app:server');
 var http = require('http');
 
 /**
