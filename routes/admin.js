@@ -22,7 +22,7 @@ router.post('/', function (req, res, next) {
     res.send("Wrong body")
     return;
   }
-  applicationState.setProject(parseInt(project))
+  applicationState.setProject(project)
   applicationState.setCategory(category)
   applicationState.setServiceAuthCreds(serviceClientId, serviceClientSecret)
   applicationState.setUserAuthCreds(userClientId, userClientSecret)

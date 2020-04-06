@@ -24,7 +24,7 @@ class ApplicationState {
 
   /**
    * Set project to use for invocations
-   * @param {number} projectId 
+   * @param {string} projectId 
    */
   setProject(projectId) {
     this.project = projectId
@@ -98,8 +98,10 @@ class ApplicationState {
  * @param {*} action
  */
 function getActionData(action) {
-  if (typeof action === "object" && action.response && action.response.data) {
+  if (action.response && action.response.data) {
     return action.response.data
+  } else if (action.response) {
+    return action.response
   } else if (action instanceof Error) {
     return action.message
   } else {
