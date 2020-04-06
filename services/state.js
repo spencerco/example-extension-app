@@ -23,7 +23,7 @@ class ApplicationState {
    * @param {string} accessToken 
    */
   setAccessToken(accessToken) {
-    this.setData("accessToken", accessToken)
+    this.accessToken = accessToken
   }
 
   /**
@@ -31,7 +31,7 @@ class ApplicationState {
    * @param {string} projectId 
    */
   setProject(projectId) {
-    this.setData("project", projectId)
+    this.project = projectId
   }
 
   /**
@@ -39,7 +39,7 @@ class ApplicationState {
    * @param {string} categoryId 
    */
   setCategory(categoryId) {
-    this.setData("category", categoryId)
+    this.category = categoryId
   }
 
   /**
@@ -48,7 +48,7 @@ class ApplicationState {
    * @param {string} clientSecret 
    */
   setServiceAuthCreds(clientId, clientSecret) {
-    this.setData("serviceAuthCreds", { clientId, clientSecret })
+    this.serviceAuthCreds = { clientId, clientSecret }
   }
 
   /**
@@ -57,12 +57,7 @@ class ApplicationState {
    * @param {string} clientSecret 
    */
   setUserAuthCreds(clientId, clientSecret) {
-    this.setData("userAuthCreds", { clientId, clientSecret })
-  }
-
-  setData(key, value) {
-    this[key] = value
-    this.persist()
+    this.userAuthCreds = { clientId, clientSecret }
   }
 
   getData() {

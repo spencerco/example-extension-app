@@ -26,6 +26,8 @@ router.post('/', function (req, res, next) {
   applicationState.setCategory(category)
   applicationState.setServiceAuthCreds(serviceClientId, serviceClientSecret)
   applicationState.setUserAuthCreds(userClientId, userClientSecret)
+  applicationState.persist()
+
   res.redirect("/admin")
 });
 
