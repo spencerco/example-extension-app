@@ -1,7 +1,8 @@
 {
   "appService.zipIgnorePattern": [
     "node_modules{,/**}",
-    ".vscode{,/**}"
+    ".vscode{,/**}",
+    ".app-state.json"
   ],
   "appService.deploySubpath": "",
   "appService.defaultWebAppToDeploy": "None"
