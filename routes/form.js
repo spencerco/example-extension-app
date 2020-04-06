@@ -36,7 +36,6 @@ router.get('/', async function (req, res, next) {
         title: 'Form Submitted',
         spencerUser,
         myDayCategories,
-        hasRequiredData: applicationState.hasRequiredData(),
       })
     } else {
       const { clientId } = applicationState.getData().userAuthCreds

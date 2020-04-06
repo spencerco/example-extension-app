@@ -1,3 +1,5 @@
+const { promises: fs } = require("fs")
+const path = require("path")
 
 /**
  * Keep some application state in memory
@@ -12,6 +14,8 @@ class ApplicationState {
 
     this.serviceAuthCreds = undefined
     this.userAuthCreds = undefined
+
+    this.rehydrate()
   }
 
   /**
@@ -19,7 +23,7 @@ class ApplicationState {
    * @param {string} accessToken 
    */
   setAccessToken(accessToken) {
-    this.accessToken = accessToken
+    this.setData("accessToken", accessToken)
   }
 
   /**
@@ -27,7 +31,7 @@ class ApplicationState {
    * @param {string} projectId 
    */
   setProject(projectId) {
-    this.project = projectId
+    this.setData("project", projectId)
   }
 
   /**
@@ -35,7 +39,7 @@ class ApplicationState {
    * @param {string} categoryId 
    */
   setCategory(categoryId) {
-    this.category = categoryId
+    this.setData("category", categoryId)
   }
 
   /**
@@ -44,7 +48,7 @@ class ApplicationState {
    * @param {string} clientSecret 
    */
   setServiceAuthCreds(clientId, clientSecret) {
-    this.serviceAuthCreds = { clientId, clientSecret }
+    this.setData("serviceAuthCreds", { clientId, clientSecret })
   }
 
   /**
@@ -53,7 +57,12 @@ class ApplicationState {
    * @param {string} clientSecret 
    */
   setUserAuthCreds(clientId, clientSecret) {
-    this.userAuthCreds = { clientId, clientSecret }
+    this.setData("userAuthCreds", { clientId, clientSecret })
+  }
+
+  setData(key, value) {
+    this[key] = value
+    this.persist()
   }
 
   getData() {
@@ -67,7 +76,7 @@ class ApplicationState {
   }
 
   hasRequiredData() {
-    return typeof this.project === "number" && !!this.category && !!this.serviceAuthCreds && !!this.userAuthCreds
+    return !!this.project && !!this.category && !!this.serviceAuthCreds && !!this.userAuthCreds
   }
 
   getActionLog() {
@@ -91,6 +100,28 @@ class ApplicationState {
     })
   }
 
+  /**
+   * Persist application state (while redeploying)
+   * @param {string} name 
+   * @param {string} action 
+   */
+  async persist() {
+    // Persist all data except action log
+    const data = JSON.stringify({ ...this, actionLog: undefined })
+    await fs.writeFile(getStateFilePath(), data, "utf-8")
+  }
+
+  async rehydrate() {
+    try {
+      const data = await fs.readFile(getStateFilePath(), "utf-8")
+      Object.assign(this, JSON.parse(data))
+    } catch (err) {
+    }
+  }
+}
+
+function getStateFilePath() {
+  return path.join(__dirname, "..", ".app-state.json")
 }
 
 /**
