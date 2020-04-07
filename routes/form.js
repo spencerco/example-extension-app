@@ -45,7 +45,7 @@ router.get('/', async function (req, res, next) {
         "response_type": "code",
         "redirect_uri": getHostUrl(req, "/authorize")
       })
-      res.redirect(`${IDENTITY_BASE_URL}/authorize?${data}`)
+      res.redirect(`${IDENTITY_BASE_URL.replace(/\/$/, "")}/authorize?${data}`)
     }
   } catch (err) {
     applicationState.appendActionLog(req.url, err)
