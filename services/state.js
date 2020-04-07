@@ -91,7 +91,7 @@ class ApplicationState {
     this.actionLog.push({
       name,
       time: new Date(),
-      data: JSON.stringify(action, null, 2)
+      data: JSON.stringify(data, null, 2)
     })
   }
 
