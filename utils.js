@@ -16,7 +16,7 @@ function toDateTime(date) {
  */
 function getHostUrl(req, pathname) {
   return url.format({
-    protocol: req.protocol,
+    protocol: "https",
     host: req.get("host"),
     pathname
   })
