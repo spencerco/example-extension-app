@@ -1,4 +1,4 @@
-const { IDENTITY_BASE_URL, AUTHORIZATION_CODE_CREDENTIALS, REDIRECT_URI } = require("../constants")
+const { IDENTITY_BASE_URL } = require("../constants")
 const qs = require("querystring")
 const jwt = require("jsonwebtoken")
 const axios = require('axios').default;
@@ -34,12 +34,12 @@ async function fetchServiceAccessToken() {
  * Fetch access token as user with authorization code
  * @param {string} code
  */
-async function fetchUserTokens(code) {
+async function fetchUserTokens(code, redirectUri) {
   const { clientSecret, clientId } = applicationState.getData().userAuthCreds
   const body = qs.stringify({
     code,
     'grant_type': 'authorization_code',
-    'redirect_uri': REDIRECT_URI
+    'redirect_uri': redirectUri
   });
   const base64 = Buffer.from(`${clientId}:${clientSecret}`).toString('base64')
   const { data } = await authAxios.request({

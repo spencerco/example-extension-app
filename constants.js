@@ -4,7 +4,7 @@ const API_BASE_URL = process.env.API_BASE_URL
 const IDENTITY_BASE_URL = process.env.IDENTITY_BASE_URL
 
 const REQUEST_TRIGGER_SLUG = "request-trigger"
-const RESULT_TRIGGER_SLUG = "result-trigger"
+const RESULT_TRIGGER_SLUG = "response-trigger"
 
 const SUPPORTED_LANGUAGES = ["en-US", "nl-BE", "fr-BE"]
 

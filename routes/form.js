@@ -70,7 +70,7 @@ router.post('/submit', async function (req, res, next) {
     const spencerUser = await fetchSpencerUser(spencerUserId, accessToken)
     const response = await invokeTrigger({
       triggerId: RESULT_TRIGGER_SLUG,
-      primaryAction: "https://delhaize-stag-backoffice.spencer.co/backoffice/publications",
+      primaryAction: "https://google.com",
       variables: {
         teamName: spencerUser.departement || spencerUser.division || spencerUser.title || "Cecemel",
         date: (new Date()).toLocaleDateString()
