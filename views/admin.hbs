@@ -34,7 +34,7 @@
         <label for="serviceClientSecret">Client Secret</label>
         <input name="serviceClientSecret"
           placeholder="e.g. 043b5d105b67a0a7276775f40fe5e4d98a0545ba897f75f68dffeefaf6ba1c4e" required
-          value="{{data.serviceAuthCreds.clientSecret}}" class="form-control" id="serviceClientSecret">
+          class="form-control" id="serviceClientSecret" type="password">
       </div>
       <br>
       <h5>User authorization credentials</h5>
@@ -47,7 +47,7 @@
         <label for="userClientSecret">Client Secret</label>
         <input name="userClientSecret"
           placeholder="e.g. 043b5d105b67a0a7276775f40fe5e4d98a0545ba897f75f68dffeefaf6ba1c4e" required
-          value="{{data.userAuthCreds.clientSecret}}" class="form-control" id="userClientSecret">
+          class="form-control" id="userClientSecret" type="password">
       </div>
       <button type="submit" class="btn btn-primary">Update</button>
     </form>
